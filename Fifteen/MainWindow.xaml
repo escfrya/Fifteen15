@@ -1,0 +1,34 @@
+﻿<Window x:Class="Fifteen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="400" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="{Binding Path=Cells[0].Row}" Grid.Column="{Binding Path=Cells[0].Column}" Content="{Binding Path=Cells[0].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[0]}" />
+        <Button Grid.Row="{Binding Path=Cells[1].Row}" Grid.Column="{Binding Path=Cells[1].Column}" Content="{Binding Path=Cells[1].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[1]}" />
+        <Button Grid.Row="{Binding Path=Cells[2].Row}" Grid.Column="{Binding Path=Cells[2].Column}" Content="{Binding Path=Cells[2].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[2]}" />
+        <Button Grid.Row="{Binding Path=Cells[3].Row}" Grid.Column="{Binding Path=Cells[3].Column}" Content="{Binding Path=Cells[3].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[3]}" />
+        <Button Grid.Row="{Binding Path=Cells[4].Row}" Grid.Column="{Binding Path=Cells[4].Column}" Content="{Binding Path=Cells[4].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[4]}" />
+        <Button Grid.Row="{Binding Path=Cells[5].Row}" Grid.Column="{Binding Path=Cells[5].Column}" Content="{Binding Path=Cells[5].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[5]}" />
+        <Button Grid.Row="{Binding Path=Cells[6].Row}" Grid.Column="{Binding Path=Cells[6].Column}" Content="{Binding Path=Cells[6].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[6]}" />
+        <Button Grid.Row="{Binding Path=Cells[7].Row}" Grid.Column="{Binding Path=Cells[7].Column}" Content="{Binding Path=Cells[7].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[7]}" />
+        <Button Grid.Row="{Binding Path=Cells[8].Row}" Grid.Column="{Binding Path=Cells[8].Column}" Content="{Binding Path=Cells[8].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[8]}" />
+        <Button Grid.Row="{Binding Path=Cells[9].Row}" Grid.Column="{Binding Path=Cells[9].Column}" Content="{Binding Path=Cells[9].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[9]}" />
+        <Button Grid.Row="{Binding Path=Cells[10].Row}" Grid.Column="{Binding Path=Cells[10].Column}" Content="{Binding Path=Cells[10].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[10]}" />
+        <Button Grid.Row="{Binding Path=Cells[11].Row}" Grid.Column="{Binding Path=Cells[11].Column}" Content="{Binding Path=Cells[11].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[11]}" />
+        <Button Grid.Row="{Binding Path=Cells[12].Row}" Grid.Column="{Binding Path=Cells[12].Column}" Content="{Binding Path=Cells[12].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[12]}" />
+        <Button Grid.Row="{Binding Path=Cells[13].Row}" Grid.Column="{Binding Path=Cells[13].Column}" Content="{Binding Path=Cells[13].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[13]}" />
+        <Button Grid.Row="{Binding Path=Cells[14].Row}" Grid.Column="{Binding Path=Cells[14].Column}" Content="{Binding Path=Cells[14].Value}" Command="{Binding ClickCommand}" CommandParameter="{Binding Path=Cells[14]}" />
+    </Grid>
+</Window>
