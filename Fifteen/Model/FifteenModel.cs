@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +11,8 @@ namespace Fifteen.Model
     public class FifteenModel
     {
         public const int AreaSize = 4;
+        private const int RandomStepCount = 50;
+
         public Cell[] Cells { get; set; }
         public Cell NullCell { get; set; }
         public DelegateCommand<Cell> ClickCommand { get; set; }
@@ -53,23 +53,19 @@ namespace Fifteen.Model
 
         private bool Finished()
         {
-            if (Cells[0].Row == 0 && Cells[0].Column == 0 &&
-            Cells[1].Row == 0 && Cells[1].Column == 1 &&
-            Cells[2].Row == 0 && Cells[2].Column == 2 &&
-            Cells[3].Row == 0 && Cells[3].Column == 3 &&
-            Cells[4].Row == 1 && Cells[4].Column == 0 &&
-            Cells[5].Row == 1 && Cells[5].Column == 1 &&
-            Cells[6].Row == 1 && Cells[6].Column == 2 &&
-            Cells[7].Row == 1 && Cells[7].Column == 3 &&
-            Cells[8].Row == 2 && Cells[8].Column == 0 &&
-            Cells[9].Row == 2 && Cells[9].Column == 1 &&
-            Cells[10].Row == 2 && Cells[10].Column == 2 &&
-            Cells[11].Row == 2 && Cells[11].Column == 3 &&
-            Cells[12].Row == 3 && Cells[12].Column == 0 &&
-            Cells[13].Row == 3 && Cells[13].Column == 1 &&
-            Cells[14].Row == 3 && Cells[14].Column == 2)
-                return true;
-            return false;
+            int index = 0;
+            for (int i = 0; i < AreaSize; i++)
+            {
+                for (int j = 0; j < AreaSize; j++)
+                {
+                    if (index == AreaSize * AreaSize - 1)
+                        return true;
+                    if (Cells[index].Row != i || Cells[index].Column != j)
+                        return false;
+                    index++;
+                }
+            }
+            return true;
         }
 
         private void GameFinished()
@@ -82,7 +78,7 @@ namespace Fifteen.Model
         {
             Task.Factory.StartNew(() =>
                                       {
-                                          for (int i = 0; i < 200; i++)
+                                          for (int i = 0; i < RandomStepCount; i++)
                                           {
                                               Thread.Sleep(20);
                                               SetRandomStep();
@@ -123,22 +119,21 @@ namespace Fifteen.Model
 
         private void SetPositions()
         {
-            Cells[0].Row = 0; Cells[0].Column = 0;
-            Cells[1].Row = 0; Cells[1].Column = 1;
-            Cells[2].Row = 0; Cells[2].Column = 2;
-            Cells[3].Row = 0; Cells[3].Column = 3;
-            Cells[4].Row = 1; Cells[4].Column = 0;
-            Cells[5].Row = 1; Cells[5].Column = 1;
-            Cells[6].Row = 1; Cells[6].Column = 2;
-            Cells[7].Row = 1; Cells[7].Column = 3;
-            Cells[8].Row = 2; Cells[8].Column = 0;
-            Cells[9].Row = 2; Cells[9].Column = 1;
-            Cells[10].Row = 2; Cells[10].Column = 2;
-            Cells[11].Row = 2; Cells[11].Column = 3;
-            Cells[12].Row = 3; Cells[12].Column = 0;
-            Cells[13].Row = 3; Cells[13].Column = 1;
-            Cells[14].Row = 3; Cells[14].Column = 2;
-            NullCell.Row = 3; NullCell.Column = 3;
+            NullCell.Row = AreaSize - 1; 
+            NullCell.Column = AreaSize -1;
+            int index = 0;
+            for (int i = 0; i < AreaSize; i++)
+            {
+                for (int j = 0; j < AreaSize; j++)
+                {
+                    if (index == AreaSize * AreaSize - 1)
+                        return;     
+                    Cells[index].Row = i;
+                    Cells[index].Column = j;
+                    index++;
+                }
+            }
+            
         }
 
         private void CreateArea()
